@@ -6,6 +6,11 @@
     <title>Geometry Genius</title>
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
   </head>
   <body class="container">
     <header>
@@ -25,7 +30,7 @@
         <!-- Card Section -->
         <section>
         <div class="card-group">
-            <div class="card">
+            <div class="card triangle">
                 <img src="images/triangle.png" class="card-img-top w-50 mx-auto mt-4" alt="...">
                 <div class="card-body">
                   <h5 class="card-title text-center">Triangle</h5>
@@ -38,29 +43,29 @@
                 </div>
                 
               </div>
-            <div class="card mx-2">
+            <div class="card mx-2 rectangle">
                 <img src="images/rectangle.png" class="card-img-top w-50 mx-auto mt-5" alt="...">
                 <div class="card-body">
                   <h5 class="card-title text-center">Rectangle</h5>
-                  <p class="card-text text-center">Area (A) = w x l</p>
+                  <p class="card-text text-center">Area (A) = <span id="rectangle-area-calculate">w x l</span></p>
                   <div class="d-flex">
-                  <p class="d-flex"><input class="form-control" type="text" placeholder="w" aria-label="Search"><span class="mt-1"> cm</span></p>
-                    <p class="d-flex"><input class="form-control" type="text" placeholder="l" aria-label="Search"> <span class="mt-1"> cm</span> </p>
+                  <p class="d-flex"><input id="rectangle-base"class="form-control" type="text" placeholder="w" aria-label="Search"><span class="mt-1"> cm</span></p>
+                    <p class="d-flex"><input id="rectangle-height"class="form-control" type="text" placeholder="l" aria-label="Search"> <span class="mt-1"> cm</span> </p>
                 </div>
-                <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
+                <button id="button-for-rectangle" class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
                 </div>
                 
               </div>
-            <div class="card mx-2">
+              <div class="card mx-2 parallelogram">
                 <img src="images/parallelogram.png" class="card-img-top w-50 mx-auto mt-5" alt="...">
-                <div class="card-body mt-2">
+                <div class="card-body mt-3">
                   <h5 class="card-title text-center">Parallelogram</h5>
-                  <p class="card-text text-center">Area (A) = b x h</p>
+                  <p class="card-text text-center">Area (A) = <span id="parallelogram-area-calculate">b x h</span></p>
                   <div class="d-flex">
-                  <p class="d-flex"><input class="form-control" type="text" placeholder="b" aria-label="Search"><span class="mt-1"> cm</span></p>
-                    <p class="d-flex"><input class="form-control" type="text" placeholder="h" aria-label="Search"> <span class="mt-1"> cm</span> </p>
+                  <p class="d-flex"><input id="parallelogram-base" class="form-control" type="text" placeholder="a" aria-label="Search"><span class="mt-1"> cm</span></p>
+                    <p class="d-flex"><input id="parallelogram-height" class="form-control" type="text" placeholder="b" aria-label="Search"> <span class="mt-1"> cm</span> </p>
                 </div>
-                <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
+                <button id="button-for-parallelogram" class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
                 </div>
                 
               </div>
@@ -68,10 +73,30 @@
               
               <div class="card-body">
                 <h5 class="card-title text-center text-decoration-underline">Area Calculation</h5>
-                <div class="d-flex">
+                <div class="d-flex ">
                 <p class="mt-2 fw-bold">1. Triangle: <span id="triangle-area-calculation"></span>  cm</p>
-                <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Convert to m<sup class="mt-2">2</sup></button>
+                <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto me-0" type="calculate">Convert to m<sup class="mt-2">2</sup></button>
                 </div>
+                <div class="d-flex mt-2">
+                    <p class="mt-2 fw-bold">2. Rectangle: <span id="rectangle-area-calculation"></span>  cm</p>
+                    <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto me-0" type="calculate">Convert to m<sup class="mt-2">2</sup></button>
+                    </div>
+                    <div class="d-flex mt-2">
+                        <p class="mt-2 fw-bold">3. paral: <span id="parallelogram-area-calculation"></span>  cm</p>
+                        <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto me-0" type="calculate">Convert to m<sup class="mt-2">2</sup></button>
+                        </div>
+                        <div class="d-flex mt-2">
+                            <p class="mt-2 fw-bold">4. Rhombus: <span id="rhombus-area-calculation"></span>  cm</p>
+                            <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto me-0" type="calculate">Convert to m<sup class="mt-2">2</sup></button>
+                            </div>
+                            <div class="d-flex mt-2">
+                                <p class="mt-2 fw-bold">5. Penta: <span id="pentagon-area-calculation"></span>  cm</p>
+                                <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto me-0" type="calculate">Convert to m<sup class="mt-2">2</sup></button>
+                                </div>
+                                <div class="d-flex mt-2">
+                                    <p class="mt-2 fw-bold">6. Ellipse: <span id="ellipse-area-calculation"></span>  cm</p>
+                                    <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto me-0" type="calculate">Convert to m<sup class="mt-2">2</sup></button>
+                                    </div>
               </div>
               
             </div>
@@ -80,42 +105,42 @@
 
         <section class="mt-5">
             <div class="card-group col-9">
-                <div class="card">
+                <div class="card rhombus">
                     <img src="images/rhombus.png" class="card-img-top w-50 mx-auto mt-4" alt="...">
                     <div class="card-body mt-3">
                       <h5 class="card-title text-center">Rhombus</h5>
-                      <p class="card-text text-center">Area (A) = 0.5 x d1 x d2</p>
+                      <p class="card-text text-center">Area (A) = <span id="rhombus-area-calculate">0.5 x d1 x d2</span> </p>
                       <div class="d-flex">
-                      <p class="d-flex"><input class="form-control" type="text" placeholder="d1" aria-label="Search"><span class="mt-1"> cm</span></p>
-                        <p class="d-flex"><input class="form-control" type="text" placeholder="d2" aria-label="Search"> <span class="mt-1"> cm</span> </p>
+                      <p class="d-flex"><input id="rhombus-base" class="form-control" type="text" placeholder="d1" aria-label="Search"><span class="mt-1"> cm</span></p>
+                        <p class="d-flex"><input id="rhombus-height" class="form-control" type="text" placeholder="d2" aria-label="Search"> <span class="mt-1"> cm</span> </p>
                     </div>
-                    <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
+                    <button id="button-for-rhombus" class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
                     </div>
                     
                   </div>
-                <div class="card mx-2">
+                <div class="card mx-2 pentagon">
                     <img src="images/pentagon.png" class="card-img-top w-50 mx-auto mt-2" alt="...">
                     <div class="card-body">
                       <h5 class="card-title text-center">Pentagon</h5>
-                      <p class="card-text text-center">Area (A) = 0.5 x p x h</p>
+                      <p class="card-text text-center">Area (A) = <span id="pentagon-area-calculate">0.5 x p x h</span></p>
                       <div class="d-flex">
-                      <p class="d-flex"><input class="form-control" type="text" placeholder="p" aria-label="Search"><span class="mt-1"> cm</span></p>
-                        <p class="d-flex"><input class="form-control" type="text" placeholder="h" aria-label="Search"> <span class="mt-1"> cm</span> </p>
+                      <p class="d-flex"><input id="pentagon-base"class="form-control" type="text" placeholder="p" aria-label="Search"><span class="mt-1"> cm</span></p>
+                        <p class="d-flex"><input id="pentagon-height"class="form-control" type="text" placeholder="h" aria-label="Search"> <span class="mt-1"> cm</span> </p>
                     </div>
-                    <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
+                    <button id="button-for-pentagon"class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
                     </div>
                     
                   </div>
-                <div class="card mx-2">
+                <div class="card mx-2 ellipse">
                     <img src="images/ellipse.png" class="card-img-top w-50 mx-auto mt-5" alt="...">
                     <div class="card-body mt-3">
                       <h5 class="card-title text-center">Ellipse</h5>
-                      <p class="card-text text-center">Area (A) = <span>&#8508;</span>ab</p>
+                      <p class="card-text text-center">Area (A) = <span id="ellipse-area-calculate">3.14ab</span></p>
                       <div class="d-flex">
-                      <p class="d-flex"><input class="form-control" type="text" placeholder="a" aria-label="Search"><span class="mt-1"> cm</span></p>
-                        <p class="d-flex"><input class="form-control" type="text" placeholder="b" aria-label="Search"> <span class="mt-1"> cm</span> </p>
+                      <p class="d-flex"><input id="ellipse-base" class="form-control" type="text" placeholder="a" aria-label="Search"><span class="mt-1"> cm</span></p>
+                        <p class="d-flex"><input id="ellipse-height" class="form-control" type="text" placeholder="b" aria-label="Search"> <span class="mt-1"> cm</span> </p>
                     </div>
-                    <button class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
+                    <button id="button-for-ellipse" class=" d-flex btn btn-primary fw-semibold p-2 mx-auto" type="calculate">Calculate</button>
                     </div>
                     
                   </div>
@@ -125,9 +150,10 @@
     </main>
 
 
+    <script src="rectangle.js"></script>
 
-
-
+    <script src="Ellipse.js"></script>
+    <script src="pentagon.js"></script>
     <script src="calculate.js"></script>
     <script src="blogpage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
